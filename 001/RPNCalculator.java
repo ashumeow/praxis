@@ -13,7 +13,7 @@ import java.util.Stack;
  * operand stack between expressions.
  * 
  * @author rdsandeep
- * @version 1.0 10/26/13
+ * @version 1.1 10/26/13
  */
 
 public class RPNCalculator {
@@ -25,19 +25,19 @@ public class RPNCalculator {
     }
     
     public static void evaluate(String expression) {
-        if(expression.length() == 0) {
+        if (expression.length() == 0) {
             System.exit(0);
         }
         String[] splitExpr = expression.trim().split("\\s+");
         Stack<Double> stack = new Stack<Double>();
         Double d = 0.0;
-        for(String s : splitExpr) {
-            try{
+        for (String s : splitExpr) {
+            try {
                 d = Double.valueOf(s);
             } catch (NumberFormatException e) { 
                 Double b = stack.pop();
                 Double a = stack.pop();
-                switch(s) {
+                switch (s) {
                     case "+": d = a + b; break;
                     case "-": d = a - b; break;
                     case "*": d = a * b; break;
